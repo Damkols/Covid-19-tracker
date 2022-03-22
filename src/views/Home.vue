@@ -5,6 +5,14 @@
     <DataBoxes :stats="stats" />
 
     <CountrySelect @get-country="getCountryData" :countries="countries" />
+
+    <button
+      @click="clearCountryData"
+      v-if="stats.Country"
+      class="bg-green-700 text-white rounded p-3 mt-6 focus:outline-none hover:bg-green"
+    >
+      Clear Country
+    </button>
   </main>
 
   <main class="flex flex-col align-center justify-center text-center" v-else>
@@ -45,6 +53,14 @@ export default {
     getCountryData(country) {
       this.stats = country;
       this.title = country.Country;
+    },
+
+    async clearCountryData() {
+      this.loading = true;
+      const data = await this.fetchCovidData();
+      this.title = "Global";
+      this.stats = data.Global;
+      this.loading = false;
     },
   },
   async created() {
