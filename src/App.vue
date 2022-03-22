@@ -14,3 +14,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.container {
+  width: min(90%, 1200px);
+  margin-inline: auto;
+}
+</style>
