@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <div class="container">
+  <div class="contain">
     <router-view />
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style>
-.container {
+.contain {
   width: min(90%, 1200px);
   margin-inline: auto;
 }
